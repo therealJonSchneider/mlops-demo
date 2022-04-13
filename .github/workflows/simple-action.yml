@@ -18,7 +18,7 @@ jobs:
     - name: check out repo
       uses: actions/checkout@v2
     - name: install az ml extension
-      uses: az extension add -n ml -y
+      run: az extension add -n ml -y
     - name: azure login
       uses: azure/login@v1
       with:
