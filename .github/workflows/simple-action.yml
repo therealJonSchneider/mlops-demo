@@ -25,5 +25,7 @@ jobs:
         creds: ${{secrets.AZURE_CREDENTIALS}}
     - name: set current directory
       run: cd code
+    - name: check directory
+      run: ls
     - name: run pipeline
-      run: az ml job create --file aml_service\pipeline-job.yml --resource-group dev-mslearn --workspace-name dev-mslearn
+      run: az ml job create --file pipeline-job.yml --resource-group dev-mslearn --workspace-name dev-mslearn
