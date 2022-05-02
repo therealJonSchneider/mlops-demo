@@ -4,9 +4,7 @@ on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
+    
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -24,8 +22,6 @@ jobs:
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
     - name: set current directory
-      run: cd code
-    - name: check directory
-      run: ls
+      run: cd src
     - name: run pipeline
       run: az ml job create --file code/aml_service/pipeline-job.yml --resource-group dev-mslearn --workspace-name dev-mslearn
